@@ -13,7 +13,7 @@ describe('statics-stylesheets', function() {
     var done = false;
 
     runs(function() {
-      collectStatic('./testdata/sample.js', './testbuild', path.resolve('./'), function() {
+      collectStatic('./testdata/sample.js', './testbuild', function() {
         expect(function() {
           expect(fs.readFileSync('./testbuild/file1.css', {encoding: 'utf8'})).toBe('/* file1.css */');
           expect(fs.readFileSync('./testbuild/yoink/file2.css', {encoding: 'utf8'})).toBe('/* file2.css */');
@@ -37,7 +37,7 @@ describe('statics-stylesheets', function() {
     var done = false;
 
     runs(function() {
-      collectStatic('./testdata/sample.js', './testbuild', path.resolve('./'), function() {
+      collectStatic('./testdata/sample.js', './testbuild', function() {
         expect(function() {
           expect(fs.existsSync('./testbuild/file1.css')).toBe(false);
           expect(fs.existsSync('./testbuild/yoink/file2.css')).toBe(false);
